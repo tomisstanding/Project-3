@@ -17,7 +17,7 @@ describe('Users', () => {
           lastname: "King",
           username: "bking",
           email: "bobby@king.com",
-          password: "bobby"
+          password_digest: "bobby"
       })
       .then((data) => {
         user = data;
@@ -41,7 +41,7 @@ describe('Users', () => {
 
   it('GET /users should return a status code and be an object', (done) => {
     request(app)
-    .get('/users/1')
+    .get(`/users/1`)
     .end((err, results) => {
       expect(results.statusCode).to.equal(200);
       expect(results.body).to.be.an.instanceOf(Object);
@@ -58,7 +58,7 @@ describe('Users', () => {
         lastname: "Tsay",
         username: "itsay",
         email: "irwin@tsay.com",
-        password: "password"
+        password_digest: "password"
       }
     })
     .end((err, results ) => {

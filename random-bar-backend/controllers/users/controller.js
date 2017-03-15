@@ -19,7 +19,7 @@ controller.show = (req, res) => {
   User
     .findById(req.params.id)
     .then((data) => {
-      res.json({ users: data });
+      res.render('users/show', { users: data });
       console.log(data);
     })
     .catch((err) => console.log('ERROR', err));
@@ -30,7 +30,7 @@ controller.create = (req, res) => {
     .create(req.body.user)
     .then((data) => {
       res.status(201)
-      .json({ user: data })
+      .redirect('/users/:id/show')
     })
     .catch(err => console.log('ERROR', err));
 };
@@ -56,7 +56,7 @@ controller.process_login = (req, res) => {
           req.session.isAuthenticated = true;
           delete user.password_digest;
           req.session.user = user;
-          res.redirect(`/users/${user.id}`)
+          res.redirect(`/users/${user.id}/show`)
         } else {
           // else send user back to login view
           res.redirect('/users/login?error=true');
