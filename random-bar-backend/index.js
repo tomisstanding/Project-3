@@ -5,6 +5,8 @@ const logger         = require('morgan');
 const path           = require('path');
 const methodOverride = require('method-override');
 const yelp           = require('yelp-fusion');
+const session        = require('express-session');
+
 
 const app            = express();
 const PORT           = process.env.PORT || 3000;
@@ -25,6 +27,12 @@ app.set('view engine', 'ejs');
 // config methodOverride
 app.use(methodOverride('_method'));
 
+// config session
+app.use(session({
+  secret: 'Taco Cat',
+  resave: false,
+  saveUninitialized: true
+}));
 
 // link to resources
 app.use('/', require('./resources'));
