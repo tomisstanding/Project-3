@@ -66,8 +66,8 @@ class BarResult extends Component {
             />
 
             <div className="randomizer">
-              <h1>Need another option?</h1>
-              <button onClick={this.selectNewBar.bind(this)}>Find another bar.</button>
+              <h2>Need another option?</h2>
+              <button className="standard-btn" onClick={this.selectNewBar.bind(this)}>Find another bar.</button>
             </div>
           </div>
         </div>

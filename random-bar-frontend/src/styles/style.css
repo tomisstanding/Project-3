@@ -1,3 +1,30 @@
+* {
+  outline: none;
+}
+
+body {
+  background-color: #1F243D;
+}
+
+h1, h2, h3, h4, h5, h6, p, li {
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  font-size: 52px !important;
+  font-weight: 100;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 100;
+}
+
+a, button {
+  cursor: pointer;
+}
+
 #appname {
   margin-right: 120vh;
 }
@@ -8,19 +35,27 @@
   left:50%;
 }
 
+#bar-status {
+  color: #41FFC0;
+}
+
 .navbar {
   display: flex;
   position: relative;
   height: 75px;
   align-items: center;
-  background-color: grey;
   max-width: 1024px;
   margin: 0 auto;
 }
 
 .navbar .logo {
   flex: 2;
-  margin-left: 10px;
+  background-image: url('../assets/last-call-logo-2x.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 165px;
+  height: 75px;
+  margin-top: 50px;
 }
 
 .navbar ul {
@@ -35,6 +70,17 @@
   display: inline-block;
   margin-left: 15px;
   margin-right: 10px;
+  color: white;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  transition: .25s;
+}
+
+.navbar a:hover {
+  opacity: .65;
 }
 
 .container {
@@ -77,41 +123,60 @@
 }
 
 .form-container {
-  text-align: center;
+  text-align: left;
 }
 
 .form-button {
   margin-top: 20px;
 }
 
+.standard-btn {
+  font-size: 16px;
+  padding: 15px 28px;
+  border-radius: 50px;
+  border: none;
+  background-color: white;
+}
+
+.secondary-btn {
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  margin: 0 10px;
+  opacity: .45;
+  letter-spacing: .50px;
+  transition: .25s;
+}
+
+.secondary-btn:hover {
+  opacity: 1;
+}
+
+.info-btn {
+  font-size: 16px;
+  color: white;
+  padding: 15px 28px;
+  border-radius: 50px;
+  border: none;
+  background-color: rgba(255,255,255,.15);
+}
+
 @media screen and (max-width:600px) {
 
-  .navbar ul li {
-  display: inline-block;
-  margin-right: 10px;
-}
   .bar-results {
-  display:flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
+    display:flex;
+    flex-direction: column;
+  }
 
-.bar-card {
-  flex: 5;
-  text-align: center;
-  list-style: none;
-  display: block;
-}
+  .bar-card {
+    list-style: none;
+    text-align: center;
+  }
 
-.bar-results .bar-card ul{
-  list-style: none;
-  padding-left: 0;
+  .saved-bar-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
-
-.saved-bar-continer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-}
-
