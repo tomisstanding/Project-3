@@ -5,7 +5,7 @@ const bodyParser     = require('body-parser');
 const logger         = require('morgan');
 const path           = require('path');
 const methodOverride = require('method-override');
-const PORT           = process.env.PORT || 3000;
+const PORT           = process.env.PORT || 8000;
 
 // config morgan
 app.use(logger('dev'));
@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
 // config methodOverride
-app.use(methodOverride('_method');
+app.use(methodOverride('_method'));
 
 // link to resources
 app.use('/', require('./resources'));
