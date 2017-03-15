@@ -12,7 +12,7 @@ router.get('/login', controller.login);
 
 router.get('/:id', controller.show);
 
-// POST ROUTES - submitting user forms
+// POST Routes
 
 router.post('/login', controller.process_login);
 
