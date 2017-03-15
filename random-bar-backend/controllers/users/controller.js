@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt');
+const jwt    = require('jsonwebtoken');
 
 const User = require('../../models/user');
 
@@ -30,7 +31,7 @@ controller.create = (req, res) => {
     .create(req.body.user)
     .then((data) => {
       res.status(201)
-      .redirect('/users/:id/show')
+      .redirect('/users/login')
     })
     .catch(err => console.log('ERROR', err));
 };
@@ -52,17 +53,21 @@ controller.process_login = (req, res) => {
         // returns boolean
         const isAuthed = bcrypt.compareSync(req.body.user.password, user.password_digest);
         if (isAuthed) {
-          // start session
-          req.session.isAuthenticated = true;
-          delete user.password_digest;
-          req.session.user = user;
-          res.redirect(`/users/${user.id}/show`)
+          // create JWT with email from user record
+          const token = jwt.sign({ email : user.email }, 'taco cat', { expiresIn: '7d' });
+          // respond with token
+          res.json({ token: token });
+          
+          // send token
+          // render show page
+
         } else {
           // else send user back to login view
-          res.redirect('/users/login?error=true');
+          res.sendStatus(401);
         }
       } else {
-        res.redirect('/users/login?error=true')
+        res.status(404)
+        .json({ error: "No user found "});
       }
     });
 }
