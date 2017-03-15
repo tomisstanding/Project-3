@@ -11,7 +11,7 @@ yelp.accessToken(clientId, clientSecret)
   .catch(err => console.log(err)
   );
 
-Bars.getBars = (city) = {
+Yelp.getBar = (city) = {
   return fetch(`https://api.yelp.com/v3/businesses/search?term=bar&location=${city}`)
 }
 
