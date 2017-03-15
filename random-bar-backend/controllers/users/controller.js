@@ -9,7 +9,11 @@ controller.index = (req, res) => {
     .findAll()
     .then((data) => res.json({ user: data }))
     .catch((err) => console.log('ERROR', err));
-}
+};
+
+controller.new = (req, res) => {
+  res.render('users/new');
+};
 
 controller.show = (req, res) => {
   User
@@ -19,7 +23,7 @@ controller.show = (req, res) => {
       console.log(data);
     })
     .catch((err) => console.log('ERROR', err));
-}
+};
 
 controller.create = (req, res) => {
   User
@@ -30,5 +34,37 @@ controller.create = (req, res) => {
     })
     .catch(err => console.log('ERROR', err));
 };
+
+controller.login = (req, res) => {
+  const error = {};
+  // if error exists
+  if (req.query.error) error.message = 'Incorrect Login Credentials';
+  // send back to login page and render error message
+  res.render('users/login', { message: error.message });
+}
+
+controller.process_login = (req, res) => {
+  User
+    .findByEmail(req.body.user.email)
+    .then((user) => {
+      // if user exists
+      if (user) {
+        // returns boolean
+        const isAuthed = bcrypt.compareSync(req.body.user.password, user.password_digest);
+        if (isAuthed) {
+          // start session
+          req.session.isAuthenticated = true;
+          delete user.password_digest;
+          req.session.user = user;
+          res.redirect(`/users/${user.id}`)
+        } else {
+          // else send user back to login view
+          res.redirect('/users/login?error=true');
+        }
+      } else {
+        res.redirect('/users/login?error=true')
+      }
+    });
+}
 
 module.exports = controller;
