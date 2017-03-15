@@ -6,10 +6,12 @@ const path           = require('path');
 const methodOverride = require('method-override');
 const yelp           = require('yelp-fusion');
 const session        = require('express-session');
-
-
+const cors           = require('cors');
 const app            = express();
 const PORT           = process.env.PORT || 3000;
+
+// config cors
+app.use(cors());
 
 // config morgan
 app.use(logger('dev'));
