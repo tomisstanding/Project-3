@@ -1,0 +1,31 @@
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  background-color: grey;
+  font-size: 30px;
+}
+
+#appname {
+  margin-right: 120vh;
+}
+
+.header {
+  flex-direction: row;
+
+}
+
+.homepage-container {
+   display: flex;
+   justify-content: center;
+}
+
+.homepage-main {
+  flex-direction: column-reverse;
+}
+
+#submit {
+  position: absolute;
+  margin-top: 350px;
+  left:50%;
+}
+
