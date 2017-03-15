@@ -10,17 +10,13 @@ class Homepage extends Component {
   render() {
     return(
       <div>
-
         <Nav />
         <div className="homepage-container">
-          <div className="homepage-main">
             <h1>Looking for a bar?</h1>
-          </div>
-          <div className="homepage-main">
-            <input id="submit" type="submit" value="Find Bar" />
-          </div>
+            <Link to="bar-result">
+              <button>Find a Bar</button>
+            </Link>
         </div>
-
       </div>
     )
   }

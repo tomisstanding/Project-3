@@ -1,26 +1,5 @@
-.navbar {
-  display: flex;
-  justify-content: flex-end;
-  background-color: grey;
-  font-size: 30px;
-}
-
 #appname {
   margin-right: 120vh;
-}
-
-.header {
-  flex-direction: row;
-
-}
-
-.homepage-container {
-   display: flex;
-   justify-content: center;
-}
-
-.homepage-main {
-  flex-direction: column-reverse;
 }
 
 #submit {
@@ -29,3 +8,63 @@
   left:50%;
 }
 
+.navbar {
+  display: flex;
+  position: relative;
+  height: 75px;
+  align-items: center;
+  background-color: grey;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.navbar .logo {
+  flex: 2;
+}
+
+.navbar ul {
+  flex: 1;
+  padding-left: 0;
+  position: absolute;
+  right: 0;
+  margin: 0;
+}
+
+.navbar ul li {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.homepage-container {
+   text-align: center;
+}
+
+.bar-results {
+  display: flex;
+}
+
+.bar-results .bar-card {
+  flex: 1;
+}
+
+.randomizer {
+  flex: 1;
+  text-align: center;
+}
+
+.saved-bar-info {
+  display: flex;
+  align-items: flex-end;
+}
+
+.saved-bar-info ul {
+  margin: 0;
+  list-style: none;
+  padding-left: 0;
+  flex: 1;
+}
