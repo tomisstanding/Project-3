@@ -4,13 +4,16 @@ const bodyParser     = require('body-parser');
 const logger         = require('morgan');
 const path           = require('path');
 const methodOverride = require('method-override');
-const yelp           = require('yelp-fusion');
+const cors           = require('cors');
 
 const app            = express();
-const PORT           = process.env.PORT || 3000;
+const PORT           = process.env.PORT || 8000;
 
 // config morgan
 app.use(logger('dev'));
+
+// config cors
+app.use(cors());
 
 // config path
 app.use(express.static(path.join(__dirname, 'public')));
