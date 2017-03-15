@@ -4,10 +4,14 @@ const bodyParser     = require('body-parser');
 const logger         = require('morgan');
 const path           = require('path');
 const methodOverride = require('method-override');
+const session        = require('express-session');
 const cors           = require('cors');
 
 const app            = express();
 const PORT           = process.env.PORT || 8000;
+
+// config cors
+app.use(cors());
 
 // config morgan
 app.use(logger('dev'));
@@ -28,6 +32,12 @@ app.set('view engine', 'ejs');
 // config methodOverride
 app.use(methodOverride('_method'));
 
+// config session
+app.use(session({
+  secret: 'Taco Cat',
+  resave: false,
+  saveUninitialized: true
+}));
 
 // link to resources
 app.use('/', require('./resources'));

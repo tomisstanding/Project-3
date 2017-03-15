@@ -1,27 +1,25 @@
-const yelp = require('yelp-fusion');
-const clientId = process.env.CLIENT_ID;
-const clientSecret = process.env.CLIENT_SECRET;
+// app middleware function used to restrict certain areas of site
 
-const YelpSearch = {};
+let AuthService = {};
 
-YelpSearch.randomBar = (location) => {
-  yelp.accessToken(clientId, clientSecret).then(response => {
-    const client = yelp.client(response.jsonBody.access_token);
-
-    client.search({
-      categories: 'bars',
-      location: '40.739747, -73.989699',
-      radius: 500,
-      sorty_by: 'rating',
-      open_now: true
-    })
-    .then((results) => {
-      console.log(results.jsonBody);
-    })
-    .catch((err) => {
-      console.log('ERROR: ', err);
-    });
-  });
+AuthService.restrict = (req, res, next) => {
+  // header is meta data sent along with certain requests
+  // checks for header
+  if(req.headers['authorization']) {
+    const payload = jwt.verify(req.headers['authorization'], 'keyboard cat');
+    if (payload) {
+      req.user = payload;
+      next();
+    } else {
+      res
+      .status(401)
+      .json({ error: 'Token is not valid'});
+    }
+  } else {
+    res
+    .status(401)
+    .json({ error: 'Please provide an authenticated token'});
+  }
 }
 
-module.exports = YelpSearch;
+module.exports = AuthService;

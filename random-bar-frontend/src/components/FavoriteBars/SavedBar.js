@@ -2,7 +2,7 @@ import React from "react";
 
 function SavedBar(props) {
   return(
-    <div>
+    <div className="saved-bar-continer">
       <div>
         <h4>{props.name}</h4>
       </div>

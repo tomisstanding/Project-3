@@ -5,9 +5,9 @@ CREATE TABLE users (
  id BIGSERIAL PRIMARY KEY,
  firstname VARCHAR(255) NOT NULL,
  lastname VARCHAR(255) NOT NULL,
- username VARCHAR(15) NOT NULL UNIQUE,
- email VARCHAR(255) NOT NULL UNIQUE,
- password VARCHAR(255) NOT NULL
+ username VARCHAR(15) NOT NULL,
+ email VARCHAR(255) NOT NULL,
+ password_digest VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE bars (
@@ -19,5 +19,3 @@ CREATE TABLE bars (
  type_of_bar TEXT NOT NULL,
  user_id INTEGER NOT NULL REFERENCES users (id)
 );
-
-
