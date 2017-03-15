@@ -10,7 +10,7 @@ class Nav extends Component {
     return (
       <div className="navbar">
         <Link to="/">
-          <span className="logo"> Logo </span>
+          <div className="logo"></div>
         </Link>
         <ul>
           <li>

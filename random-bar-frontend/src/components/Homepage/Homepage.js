@@ -14,7 +14,7 @@ class Homepage extends Component {
         <div className="homepage-container">
             <h1>Looking for a bar?</h1>
             <Link to="bar-result">
-              <button>Find a Bar</button>
+              <button className="standard-btn">Find a Bar</button>
             </Link>
         </div>
       </div>
