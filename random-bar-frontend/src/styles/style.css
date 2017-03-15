@@ -20,6 +20,7 @@
 
 .navbar .logo {
   flex: 2;
+  margin-left: 10px;
 }
 
 .navbar ul {
@@ -33,6 +34,7 @@
 .navbar ul li {
   display: inline-block;
   margin-left: 15px;
+  margin-right: 10px;
 }
 
 .container {
@@ -52,6 +54,11 @@
   flex: 1;
 }
 
+.bar-results .bar-card ul{
+  list-style: none;
+  padding-left: 0;
+}
+
 .randomizer {
   flex: 1;
   text-align: center;
@@ -68,3 +75,43 @@
   padding-left: 0;
   flex: 1;
 }
+
+.form-container {
+  text-align: center;
+}
+
+.form-button {
+  margin-top: 20px;
+}
+
+@media screen and (max-width:600px) {
+
+  .navbar ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+  .bar-results {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.bar-card {
+  flex: 5;
+  text-align: center;
+  list-style: none;
+  display: block;
+}
+
+.bar-results .bar-card ul{
+  list-style: none;
+  padding-left: 0;
+}
+
+.saved-bar-continer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+}
+
