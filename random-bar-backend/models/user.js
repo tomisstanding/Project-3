@@ -19,8 +19,8 @@ User.create = (user) => {
       user.username,
       user.email,
       password
-    ])
-};
+    ]);
+}
 
 User.findAll = () => {
   return db.query(`
