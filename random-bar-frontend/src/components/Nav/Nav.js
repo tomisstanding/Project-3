@@ -13,8 +13,12 @@ class Nav extends Component {
           <span className="logo"> Logo </span>
         </Link>
         <ul>
-          <li>Sign Up</li>
-          <li>Log In</li>
+          <li>
+          <Link to="/signup">Sign Up</Link>
+          </li>
+          <li>
+          <Link to="/login">Log In</Link>
+          </li>
         </ul>
       </div>
     )
