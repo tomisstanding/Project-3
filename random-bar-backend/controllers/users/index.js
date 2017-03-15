@@ -8,8 +8,10 @@ router.get('/', controller.index);
 
 router.get('/new', controller.new);
 
+router.get('/login', controller.login);
+
 router.get(
-  '/:id',
+  '/:id/show',
   AuthService.restrict,
   controller.show
 );

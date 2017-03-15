@@ -7,7 +7,7 @@ CREATE TABLE users (
  lastname VARCHAR(255) NOT NULL,
  username VARCHAR(15) NOT NULL,
  email VARCHAR(255) NOT NULL,
- password VARCHAR(255) NOT NULL
+ password_digest VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE bars (

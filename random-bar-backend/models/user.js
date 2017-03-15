@@ -10,7 +10,7 @@ User.create = (user) => {
   const password = bcrypt.hashSync(user.password, 10);
   return db.none(`
     INSERT INTO users
-    (firstname, lastname, username, email, password)
+    (firstname, lastname, username, email, password_digest)
     VALUES
     ($1, $2, $3, $4, $5)`,
     [
@@ -19,8 +19,7 @@ User.create = (user) => {
       user.username,
       user.email,
       password
-    ]
-  );
+    ])
 };
 
 User.findAll = () => {
