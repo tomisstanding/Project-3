@@ -1,11 +1,13 @@
 require('dotenv').config();
 const express        = require('express');
-const app            = express();
 const bodyParser     = require('body-parser');
 const logger         = require('morgan');
 const path           = require('path');
 const methodOverride = require('method-override');
-const PORT           = process.env.PORT || 8000;
+const yelp           = require('yelp-fusion');
+
+const app            = express();
+const PORT           = process.env.PORT || 3000;
 
 // config morgan
 app.use(logger('dev'));
@@ -22,6 +24,7 @@ app.set('view engine', 'ejs');
 
 // config methodOverride
 app.use(methodOverride('_method'));
+
 
 // link to resources
 app.use('/', require('./resources'));
