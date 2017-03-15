@@ -10,11 +10,7 @@ router.get('/new', controller.new);
 
 router.get('/login', controller.login);
 
-router.get(
-  '/:id/show',
-  AuthService.restrict,
-  controller.show
-);
+router.get('/:id', controller.show);
 
 // POST ROUTES - submitting user forms
 

@@ -31,7 +31,8 @@ controller.create = (req, res) => {
     .create(req.body.user)
     .then((data) => {
       res.status(201)
-      .redirect('/users/login')
+      .json({user: data})
+      // .redirect('/users/login')
     })
     .catch(err => console.log('ERROR', err));
 };
@@ -50,14 +51,14 @@ controller.process_login = (req, res) => {
     .then((user) => {
       // if user exists
       if (user) {
-        // returns boolean
+        // compare password with hashed password - will return boolean
         const isAuthed = bcrypt.compareSync(req.body.user.password, user.password_digest);
         if (isAuthed) {
-          // create JWT with email from user record
+          // create JWT with email from user record with options
           const token = jwt.sign({ email : user.email }, 'taco cat', { expiresIn: '7d' });
           // respond with token
           res.json({ token: token });
-          
+
           // send token
           // render show page
 

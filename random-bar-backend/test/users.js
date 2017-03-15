@@ -1,5 +1,8 @@
 const request = require('supertest');
 const expect  = require('chai').expect;
+const AuthService = require('../services/auth');
+const bcrypt = require('bcrypt');
+
 
 const app  = require('../index');
 
@@ -17,7 +20,7 @@ describe('Users', () => {
           lastname: "King",
           username: "bking",
           email: "bobby@king.com",
-          password_digest: "bobby"
+          password: "bobby"
       })
       .then((data) => {
         user = data;
@@ -41,7 +44,7 @@ describe('Users', () => {
 
   it('GET /users should return a status code and be an object', (done) => {
     request(app)
-    .get(`/users/1`)
+    .get(`/users/5`)
     .end((err, results) => {
       expect(results.statusCode).to.equal(200);
       expect(results.body).to.be.an.instanceOf(Object);
@@ -58,10 +61,10 @@ describe('Users', () => {
         lastname: "Tsay",
         username: "itsay",
         email: "irwin@tsay.com",
-        password_digest: "password"
+        password: "hello"
       }
     })
-    .end((err, results ) => {
+    .end((err, results) => {
       expect(results.statusCode).to.equal(201);
       expect(results.body).to.be.an.instanceOf(Object);
       expect(results.body).to.not.be.an.instanceOf(Array);
