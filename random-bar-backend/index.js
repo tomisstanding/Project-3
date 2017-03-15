@@ -1,4 +1,4 @@
-require('dotenv').config({ silent: true });
+require('dotenv').config();
 const express        = require('express');
 const bodyParser     = require('body-parser');
 const logger         = require('morgan');
@@ -8,6 +8,7 @@ const yelp           = require('yelp-fusion');
 
 const app            = express();
 const PORT           = process.env.PORT || 3000;
+
 // config morgan
 app.use(logger('dev'));
 
@@ -18,11 +19,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// config method ovveride
-app.use(methodOverride('_method'));
-
 // config ejs
 app.set('view engine', 'ejs');
+
+// config methodOverride
+app.use(methodOverride('_method'));
+
 
 // link to resources
 app.use('/', require('./resources'));
