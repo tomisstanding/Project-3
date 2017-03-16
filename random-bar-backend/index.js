@@ -15,28 +15,18 @@ app.use(cors());
 // config morgan
 app.use(logger('dev'));
 
-// config cors
-app.use(cors());
-
 // config path
 app.use(express.static(path.join(__dirname, 'public')));
 
 // config body parser
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // config ejs
 app.set('view engine', 'ejs');
 
 // config methodOverride
 app.use(methodOverride('_method'));
-
-// config session
-app.use(session({
-  secret: 'Taco Cat',
-  resave: false,
-  saveUninitialized: true
-}));
 
 // link to resources
 app.use('/', require('./resources'));

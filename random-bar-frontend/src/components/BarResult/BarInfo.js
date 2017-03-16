@@ -16,7 +16,7 @@ function BarInfo(props) {
   }
 
   return(
-      <div className="bar-card">
+      <div>
         <h2>{props.name}</h2>
         <div className="bar-info">
           <ul>
@@ -26,8 +26,6 @@ function BarInfo(props) {
             <li>{props.price_range}</li>
           </ul>
         </div>
-        <button className="outline-btn">See More Info</button>
-        <button className="secondary-btn">Add to Favorites</button>
       </div>
   );
 }

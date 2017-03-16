@@ -1,9 +1,6 @@
 const router = require('express').Router();
 
-router.use('/users', require('./controllers/users'));
-
-router.use('/bars', require('./controllers/bars'));
-
-router.use('/api', require('./controllers/api'));
+router.use('/saved_bars', require('./controllers/bars/index.js'));
+router.use('/api', require('./controllers/api/index.js'));
 
 module.exports = router;
