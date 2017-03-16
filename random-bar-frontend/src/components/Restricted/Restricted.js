@@ -29,6 +29,8 @@ class SavedBar extends Component {
     .then((results) => {
       results.json().then((content) => {
         this.setState({ message: content.message })
+        // where you store token in local storage
+
       })
     })
     .catch((err) => {
