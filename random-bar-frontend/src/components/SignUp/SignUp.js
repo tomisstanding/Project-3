@@ -7,9 +7,25 @@ import Nav from "../Nav/Nav"
 class SignUp extends Component {
   constructor(props) {
     super(props);
-    this.state={
+
+    this.state = {
       user:{}
-    }
+    };
+  }
+
+  componentDidMount() {
+    fetch(`http://localhost:8000/users`, {
+      method: "GET"
+    })
+    .then((results) => {
+      results.json().then((data) => {
+        this.setState({ user: data })
+        console.log(data); // logs as empty object
+      })
+    })
+    .catch((err) => {
+      console.log("ERROR:", err);
+    });
   }
 
   handleChange(event) {
@@ -24,23 +40,27 @@ class SignUp extends Component {
     this.setState(newState);
   }
 
-  // handleSubmit(event) {
-  //   event.preventDefault();
-  //
-  //   fetch('http://localhost:8000/', {
-  //     method: 'POST',
-  //     body: JSON.stringify(this.state),
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     }
-  //   })
-  //   .then(() => {
-  //     browserHistory('/');
-  //   })
-  //   .catch((err) => {
-  //     console.log('ERROR: ', err);
-  //   })
-  // }
+  handleSubmit(event) {
+    event.preventDefault();
+
+    console.log(this.state.user);
+
+    fetch(`http://localhost:8000/users`, {
+      method: "POST",
+      body: JSON.stringify({
+        user: this.state.user
+      }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(() => {
+      browserHistory.push("/");
+    })
+    .catch((err) => {
+      console.log("ERROR:", err);
+    })
+  }
 
   render(){
     return(
@@ -49,17 +69,17 @@ class SignUp extends Component {
         <div className="container">
           <h2>Create an Account</h2>
           <div className="form-container">
-            <form>
+            <form onSubmit={this.handleSubmit.bind(this)}>
               <h4>First name:</h4>
-              <input name="first_name" type="text" className="signup-form" onChange={this.handleChange.bind(this)} />
+              <input name="firstname" type="text" className="signup-form" onChange={this.handleChange.bind(this)} />
               <h4>Last name:</h4>
-              <input name="last_name" type="text" className="signup-form" onChange={this.handleChange.bind(this)} />
+              <input name="lastname" type="text" className="signup-form" onChange={this.handleChange.bind(this)} />
               <h4>Email:</h4>
               <input name="email" type="email" className="signup-form" onChange={this.handleChange.bind(this)} />
               <h4>Username:</h4>
               <input name="username" type="text" className="signup-form" onChange={this.handleChange.bind(this)} />
               <h4>Password:</h4>
-              <input name="password" type="password" className="signup-form" onChange={this.handleChange.bind(this)} />
+              <input name="password_digest" type="password" className="signup-form" onChange={this.handleChange.bind(this)} />
               <br />
               <button className="standard-btn" type="submit">Signup</button>
             </form>
