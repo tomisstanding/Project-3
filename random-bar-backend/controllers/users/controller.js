@@ -39,9 +39,11 @@ controller.show = (req, res) => {
 };
 
 controller.create = (req, res) => {
+  console.log('req body in controller', req.body)
   User
     .create(req.body.user)
     .then((data) => {
+      console.log('data in controller', data)
       res.status(201)
       .json({ user: data })
     })
@@ -49,17 +51,11 @@ controller.create = (req, res) => {
 };
 
 controller.login = (req, res) => {
-  const error = {};
-  // if error exists
-  if (req.query.error) error.message = 'Incorrect Login Credentials';
-  // send back to login page and render error message
-  res.render('users/login', { message: error.message });
-}
 
-controller.process_login = (req, res) => {
   User
-    .findByEmail(req.body.user)
+    .findByEmail(req.body.user.email)
     .then((user) => {
+
       // if user exists
       if (user) {
         // compare password with hashed password - will return boolean

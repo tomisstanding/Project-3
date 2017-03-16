@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Link} from "react-router";
+
 
 import Nav from "../Nav/Nav";
 import BarInfo from "./BarInfo";
