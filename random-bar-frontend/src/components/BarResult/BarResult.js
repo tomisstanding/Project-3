@@ -22,12 +22,13 @@ class BarResult extends Component {
 
   componentDidMount() {
     navigator.geolocation.getCurrentPosition((position) => {
+      this.setState({ position });
+
       fetch(`http://localhost:8000/api/${this.state.position.coords.latitude}/${this.state.position.coords.longitude}`, {
         method: 'GET'
       })
       .then((results) => {
         results.json().then((data) => {
-          this.setState({ position });
           this.setState({bars: data[Math.floor(Math.random() * data.length)]});
         });
       })

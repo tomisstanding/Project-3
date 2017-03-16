@@ -3,8 +3,8 @@ import React from "react";
 import ReactDom from "react-dom";
 import {Route, Router, browserHistory} from "react-router";
 
-import "./styles/style.css";
 import "./styles/normalize.css";
+import "./styles/style.css";
 
 import Homepage from "./components/Homepage/Homepage";
 import Nav from "./components/Nav/Nav";
