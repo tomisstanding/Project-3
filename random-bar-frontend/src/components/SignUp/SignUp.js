@@ -47,20 +47,23 @@ class SignUp extends Component {
       <div>
         <Nav />
         <div className="container">
-          <h1>Sign Up Here</h1>
-          <form className="form-container">
-            <h4>First name:</h4>
-            <input name="first_name" type="text" className="signup-form" onChange={this.handleChange.bind(this)} />
-            <h4>Last name:</h4>
-            <input name="last_name" type="text" className="signup-form" onChange={this.handleChange.bind(this)} />
-            <h4>Email:</h4>
-            <input name="email" type="email" className="signup-form" onChange={this.handleChange.bind(this)} />
-            <h4>Username:</h4>
-            <input name="username" type="text" className="signup-form" onChange={this.handleChange.bind(this)} />
-            <h4>Password:</h4>
-            <input name="password" type="password" className="signup-form" onChange={this.handleChange.bind(this)} />
-            <button type="submit">Signup</button>
-          </form>
+          <h2>Create an Account</h2>
+          <div className="form-container">
+            <form>
+              <h4>First name:</h4>
+              <input name="first_name" type="text" className="signup-form" onChange={this.handleChange.bind(this)} />
+              <h4>Last name:</h4>
+              <input name="last_name" type="text" className="signup-form" onChange={this.handleChange.bind(this)} />
+              <h4>Email:</h4>
+              <input name="email" type="email" className="signup-form" onChange={this.handleChange.bind(this)} />
+              <h4>Username:</h4>
+              <input name="username" type="text" className="signup-form" onChange={this.handleChange.bind(this)} />
+              <h4>Password:</h4>
+              <input name="password" type="password" className="signup-form" onChange={this.handleChange.bind(this)} />
+              <br />
+              <button className="standard-btn" type="submit">Signup</button>
+            </form>
+          </div>
         </div>
       </div>
     );

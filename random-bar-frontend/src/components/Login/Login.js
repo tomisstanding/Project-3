@@ -30,14 +30,16 @@ class Login extends Component {
      <div>
      <Nav />
         <div className="container">
-          <h1>Login Here</h1>
-          <form className="form-container">
-            <h4>Email:</h4>
-            <input name="email" type="email" placeholder="john.smith@email.com" onChange={this.handleChange.bind(this)} />
-            <h4>Password:</h4>
-            <input name="password" type="password" placeholder="Password" onChange={this.handleChange.bind(this)} />
-            <button type="submit" className="form-button">Login</button>
-          </form>
+          <h2>Login Here</h2>
+          <div className="form-container">
+            <form>
+              <h4>Email:</h4>
+              <input name="email" type="email" onChange={this.handleChange.bind(this)} />
+              <h4>Password:</h4>
+              <input name="password" type="password" onChange={this.handleChange.bind(this)} />
+              <button className="standard-btn" type="submit">Login</button>
+            </form>
+          </div>
         </div>
       </div>
     )
