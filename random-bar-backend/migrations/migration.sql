@@ -17,5 +17,5 @@ CREATE TABLE bars (
  phone_number TEXT NOT NULL,
  website TEXT NOT NULL,
  type_of_bar TEXT NOT NULL,
- user_id INTEGER NOT NULL REFERENCES users (id)
+ user_id INTEGER NOT NULL REFERENCES users(id)
 );

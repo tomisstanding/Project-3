@@ -12,4 +12,20 @@ controller.index = (req, res) => {
     .catch((err) => console.log('ERROR', err));
 }
 
+controller.create = (req, res) => {
+  Bar
+    .create(req.body.bar, req.params.id)
+    .then(() => res.redirect('/bars'))
+    .catch(err => console.log('ERROR', err));
+}
+
+controller.delete = (req, res) => {
+  Bar
+    .delete(req.params.id)
+    .then(() => {
+      res.redirect(`/users/${req.params.id}`)
+    })
+    .catch(err => console.log('ERROR', err));
+}
+
 module.exports = controller;
