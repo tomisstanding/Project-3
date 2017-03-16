@@ -25,6 +25,27 @@ class Login extends Component {
     this.setState(newState);
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+
+    fetch(`http://localhost:8000/users/login`, {
+      method: "POST",
+      body: JSON.stringify({
+        user: this.state
+      }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(() => {
+      
+      browserHistory.push("/")
+    })
+    .catch((err) => {
+      console.log("ERROR:", err);
+    })
+  }
+
   render() {
     return (
      <div>

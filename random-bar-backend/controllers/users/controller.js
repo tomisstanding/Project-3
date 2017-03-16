@@ -31,8 +31,7 @@ controller.create = (req, res) => {
     .create(req.body.user)
     .then((data) => {
       res.status(201)
-      .json({user: data})
-      // .redirect('/users/login')
+      .json({ user: data })
     })
     .catch(err => console.log('ERROR', err));
 };
@@ -59,7 +58,7 @@ controller.process_login = (req, res) => {
           // respond with token
           res.json({ token: token });
 
-          // send token
+          // store token on front end
           // render show page
 
         } else {
