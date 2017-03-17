@@ -27,7 +27,14 @@ controller.authorizeToken = (req, res) => {
     } else {
 
       // pass favorite bars to dashboard page here
-      
+      Bar
+        .findByUserEmail(decoded.email)
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((err) => {
+          console.log('ERROR', err);
+        })
 
       console.log('two', decoded);
       res.json({ message: "This is restricted content coming from the Node Server."})

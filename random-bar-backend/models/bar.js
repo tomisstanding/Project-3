@@ -12,13 +12,29 @@ Bar.addToFavorites = (bar) => {
   );
 }
 
+// Bar.findByUserEmail = (email) => {
+//   return db.query(
+//     `SELECT *
+//     FROM saved_bars
+//     WHERE email = $1`,
+//     [email]
+//   )
+// }
+
 Bar.findByUserEmail = (email) => {
   return db.query(
-    `SELECT *
+    `SELECT
+      saved_bars.name,
+      saved_bars.rating,
+      saved_bars.address,
+      saved_bars.phone,
+      users.email
     FROM saved_bars
+    LEFT OUTER JOIN users
+    ON users.id = saved_bars.user_id
     WHERE email = $1`,
     [email]
-  )
+  );
 }
 
 module.exports = Bar;
