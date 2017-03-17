@@ -15,6 +15,7 @@ class FavoriteBars extends Component {
 
   // get dynamic content from server user saved JWT
   componentDidMount() {
+
     fetch(`http://localhost:8000/users/dashboard`, {
       method: "GET",
       headers: {
@@ -25,6 +26,7 @@ class FavoriteBars extends Component {
     .then((results) => {
       results.json().then((data) => {
         this.setState({ bars: data });
+        window.localStorage.setItem('user_id', JSON.stringify(this.state.bars[0].user_id));
       })
     })
     .catch((err) => {

@@ -36,7 +36,7 @@ controller.authorizeToken = (req, res) => {
         .catch((err) => {
           console.log('ERROR', err);
         })
-      // console.log('two', decoded);
+      console.log('two', decoded);
       // res.json({ message: "This is restricted content coming from the Node Server."})
     }
   });
@@ -64,16 +64,6 @@ controller.create = (req, res) => {
     .catch(err => console.log('ERROR', err));
 };
 
-controller.restrict = (req, res) => {
-  // jwt.verify(req.headers.authorization, "taco cat", (err, decoded) => {
-  //   if (err) {
-  //     res
-  //     .status(401)
-  //     .json({ error })
-  //   }
-  // })
-}
-
 controller.login = (req, res) => {
   User
     .findByEmail(req.body.user.email)
@@ -87,10 +77,6 @@ controller.login = (req, res) => {
           const token = jwt.sign({ email : user.email }, 'taco cat', { expiresIn: '7d' });
           // respond with token
           res.json({ token });
-
-          // store token on front end
-          // render show page
-
         } else {
           // else send user back to login view
           res.sendStatus(401);

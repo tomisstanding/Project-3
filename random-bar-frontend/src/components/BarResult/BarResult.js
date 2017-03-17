@@ -82,7 +82,8 @@ class BarResult extends Component {
           rating: parseInt(`${this.state.bars.rating}`),
           phone: `${this.state.bars.display_phone}`,
           price: `${this.state.bars.price}`,
-          address: `${this.state.bars.location.display_address}`
+          address: `${this.state.bars.location.display_address}`,
+          user_id: window.localStorage.getItem('user_id')
         }
       }),
       headers: {

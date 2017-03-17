@@ -10,9 +10,6 @@ router.get('/new', controller.new);
 
 router.get('/dashboard', controller.authorizeToken);
 
-router.get('/:id', controller.restrict);
-
-
 // POST Routes
 
 router.post('/login', controller.login);
