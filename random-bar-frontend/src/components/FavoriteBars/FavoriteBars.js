@@ -13,7 +13,8 @@ class FavoriteBars extends Component {
         {
           firstname: 'John'
         }
-      ]
+      ],
+      user_id: 0
     };
   }
 
@@ -28,8 +29,11 @@ class FavoriteBars extends Component {
     })
     .then((results) => {
       results.json().then((data) => {
-        this.setState({ bars: data });
-        window.localStorage.setItem('user_id', JSON.stringify(this.state.bars[0].user_id));
+        // console.log('DATA FROM REACT:', data.user_id);
+        this.setState({ bars: data.data });
+        this.setState({ user_id: data.user_id});
+
+        window.localStorage.setItem('user_id', parseInt(this.state.user_id));
       })
     })
     .catch((err) => {
@@ -41,9 +45,7 @@ class FavoriteBars extends Component {
   render() {
     return(
       <div>
-        <UserNav
-          firstname={this.state.bars[0].firstname}
-        />
+        <UserNav/>
         <div className="container">
         <h2>Your Favorite Bars</h2>
           {this.state.bars.map((bar) => {
@@ -51,7 +53,7 @@ class FavoriteBars extends Component {
               <div key={bar.id}>
                 <SavedBar
                   bar_id={bar.id}
-                  user_id={bar.user_id}
+                  user_id={this.state.user_id}
                   name={bar.name}
                   rating={bar.rating}
                   address={bar.address}

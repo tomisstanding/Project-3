@@ -30,8 +30,10 @@ controller.authorizeToken = (req, res) => {
       Bar
         .findByUserEmail(decoded.email)
         .then((data) => {
-          res.json(data);
-
+          res.json({
+            data: data,
+            user_id: decoded.user_id
+          });
         })
         .catch((err) => {
           console.log('ERROR', err);
@@ -74,7 +76,10 @@ controller.login = (req, res) => {
         const isAuthed = bcrypt.compareSync(req.body.user.password, user.password_digest);
         if (isAuthed) {
           // create JWT with email from user record with options
-          const token = jwt.sign({ email : user.email }, 'taco cat', { expiresIn: '7d' });
+          const token = jwt.sign({
+            email : user.email,
+            user_id: user.id
+          }, 'taco cat', { expiresIn: '7d' });
           // respond with token
           res.json({ token });
         } else {
