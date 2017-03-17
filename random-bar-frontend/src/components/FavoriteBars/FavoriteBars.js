@@ -13,25 +13,26 @@ class FavoriteBars extends Component {
     };
   }
 
+// from arun's example
   // when the component is about to mount check for auth token
-  componentWillMount() {
-    if (!localStorage.getItem("token")) {
-      browserHistory.push("/users/login");
-    }
-  }
+  // componentWillMount() {
+  //   if (!localStorage.getItem("token")) {
+  //     browserHistory.push("/users/login");
+  //   }
+  // }
 
   // get dynamic content from server user saved JWT
   componentDidMount() {
-    fetch(`http://localhost:8000/users/restricted`, {
+    fetch(`http://localhost:8000/users/dashboard`, {
       method: "GET",
       headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${window.localStorage.getItem("token")}`
+        // "Authorization": `Bearer ${window.localStorage.getItem("token")}`
+        "Authorization": window.localStorage.getItem("MyToken")
       }
     })
     .then((results) => {
-      results.json().then((content) => {
-        this.setState({ message: content.message })
+      results.json().then((data) => {
+        this.setState({ data })
       })
     })
     .catch((err) => {

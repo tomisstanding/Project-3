@@ -8,9 +8,10 @@ router.get('/', controller.index);
 
 router.get('/new', controller.new);
 
-router.get('/:id', controller.show);
+router.get('/dashboard', controller.authorizeToken);
 
-router.get('/restricted', controller.authorizeToken);
+router.get('/:id', controller.restrict);
+
 
 // POST Routes
 

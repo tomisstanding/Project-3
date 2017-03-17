@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt    = require('jsonwebtoken');
 
 const User = require('../../models/user');
+const Bar = require('../../models/bar');
 
 const controller = {};
 
@@ -19,10 +20,16 @@ controller.new = (req, res) => {
 controller.authorizeToken = (req, res) => {
   jwt.verify(req.headers.authorization, "taco cat", (err, decoded) => {
     if (err) {
+      console.log('one');
       res
       .status(401)
       .json({ error: err.message });
     } else {
+
+      // pass favorite bars to dashboard page here
+      
+
+      console.log('two', decoded);
       res.json({ message: "This is restricted content coming from the Node Server."})
     }
   });
@@ -50,8 +57,17 @@ controller.create = (req, res) => {
     .catch(err => console.log('ERROR', err));
 };
 
-controller.login = (req, res) => {
+controller.restrict = (req, res) => {
+  // jwt.verify(req.headers.authorization, "taco cat", (err, decoded) => {
+  //   if (err) {
+  //     res
+  //     .status(401)
+  //     .json({ error })
+  //   }
+  // })
+}
 
+controller.login = (req, res) => {
   User
     .findByEmail(req.body.user.email)
     .then((user) => {
@@ -66,7 +82,7 @@ controller.login = (req, res) => {
           res.json({ token });
 
           // store token on front end
-          // render show page   
+          // render show page
 
         } else {
           // else send user back to login view

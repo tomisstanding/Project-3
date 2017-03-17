@@ -12,4 +12,13 @@ Bar.addToFavorites = (bar) => {
   );
 }
 
+Bar.findByUserEmail = (email) => {
+  return db.query(
+    `SELECT *
+    FROM saved_bars
+    WHERE email = $1`,
+    [email]
+  )
+}
+
 module.exports = Bar;
