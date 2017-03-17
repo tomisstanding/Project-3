@@ -8,7 +8,7 @@ const User = {};
 
 User.create = (user) => {
   console.log('user create', user)
-  const password_digest = bcrypt.hashSync(user.password, 10);
+  const password = bcrypt.hashSync(user.password_digest, 10);
   return db.one(`
     INSERT INTO users
     (firstname, lastname, username, email, password_digest)
@@ -19,7 +19,7 @@ User.create = (user) => {
       user.lastname,
       user.username,
       user.email,
-      password_digest
+      password
     ]);
 }
 

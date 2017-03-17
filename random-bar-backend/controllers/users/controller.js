@@ -55,7 +55,6 @@ controller.login = (req, res) => {
   User
     .findByEmail(req.body.user.email)
     .then((user) => {
-
       // if user exists
       if (user) {
         // compare password with hashed password - will return boolean
@@ -64,7 +63,7 @@ controller.login = (req, res) => {
           // create JWT with email from user record with options
           const token = jwt.sign({ email : user.email }, 'taco cat', { expiresIn: '7d' });
           // respond with token
-          res.json({ token: token });
+          res.json({ token });
 
         } else {
           // else send user back to login view
@@ -77,7 +76,7 @@ controller.login = (req, res) => {
     });
 }
 
-// Dan was super helpful in helping us to pass the token correctly to users!
+// credit to Dan Pease who helped us to pass the jwt properly when a user is created and logs in
 
 
 module.exports = controller;

@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Link, browserHistory} from "react-router";
+import {browserHistory} from "react-router";
 import update from "react-addons-update";
 
 import Nav from "../Nav/Nav";
@@ -46,12 +46,13 @@ class Login extends Component {
         // console.log(jwt);
         window.localStorage.setItem("MyToken", jwt.token);
         console.log('localstorage token',window.localStorage.getItem("MyToken"))
+        // HOW WE CAN LOGOUT - wipe token
         // window.localStorage.setItem("MyToken", "")
         // console.log('localstorage after wipe',window.localStorage.getItem("MyToken"))
         browserHistory.push("/");
       })
     })
-    .catch((err) => {
+    .catch(() => {
       alert("Not Authenticated!");
     })
   }

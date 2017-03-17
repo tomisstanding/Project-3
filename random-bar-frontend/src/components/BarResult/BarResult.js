@@ -1,6 +1,4 @@
 import React, {Component} from "react";
-
-
 import Nav from "../Nav/Nav";
 import BarInfo from "./BarInfo";
 
