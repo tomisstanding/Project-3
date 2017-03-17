@@ -8,16 +8,14 @@ router.get('/', controller.index);
 
 router.get('/new', controller.new);
 
-router.get('/login', controller.login);
-
 router.get('/:id', controller.show);
 
 router.get('/restricted', controller.authorizeToken);
 
 // POST Routes
 
-router.post('/authenticate', controller.process_login);
+router.post('/login', controller.login);
 
-router.post('/', controller.create);
+router.post('/signup', controller.create);
 
 module.exports = router;

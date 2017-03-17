@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Link, browserHistory } from "react-router";
+import { browserHistory } from "react-router";
 import update from "react-addons-update";
 
-import Nav from "../Nav/Nav"
+import Nav from "../Nav/Nav";
 
 class SignUp extends Component {
   constructor(props) {
@@ -19,9 +19,9 @@ class SignUp extends Component {
     })
     .then((results) => {
       results.json().then((data) => {
-        this.setState({ user: data })
-        console.log(data); // logs as empty object
-      })
+        this.setState({ user: data });
+        console.log("signup.js component did mount data:", data); // logs as empty object
+      });
     })
     .catch((err) => {
       console.log("ERROR:", err);
@@ -45,11 +45,9 @@ class SignUp extends Component {
 
     console.log(this.state.user);
 
-    fetch(`http://localhost:8000/users`, {
+    fetch(`http://localhost:8000/users/signup`, {
       method: "POST",
-      body: JSON.stringify({
-        user: this.state.user
-      }),
+      body: JSON.stringify(this.state),
       headers: {
         "Content-Type": "application/json"
       }
@@ -59,7 +57,7 @@ class SignUp extends Component {
     })
     .catch((err) => {
       console.log("ERROR:", err);
-    })
+    });
   }
 
   render(){

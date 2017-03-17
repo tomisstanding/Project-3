@@ -11,7 +11,6 @@ import BarResult from "./components/BarResult/BarResult";
 import FavoriteBars from "./components/FavoriteBars/FavoriteBars";
 import SignUp from "./components/SignUp/SignUp";
 import Login from "./components/Login/Login";
-// import Restricted from "./components/Restricted/Restricted";
 
 ReactDom.render(
   <Router history={browserHistory}>
@@ -20,7 +19,6 @@ ReactDom.render(
     <Route path="/:user_id/dashboard" component={FavoriteBars} />
     <Route path="/signup" component={SignUp} />
     <Route path="/login" component={Login} />
-    {/* <Route path="/Restricted" component={Restricted} /> */}
   </Router>
   , document.getElementById("app")
 );
