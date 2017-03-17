@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router";
+import { Link, browserHistory } from "react-router";
 
 
 import Nav from "../Nav/Nav";
@@ -82,7 +82,8 @@ class BarResult extends Component {
           rating: parseInt(`${this.state.bars.rating}`),
           phone: `${this.state.bars.display_phone}`,
           price: `${this.state.bars.price}`,
-          address: `${this.state.bars.location.display_address}`
+          address: `${this.state.bars.location.display_address}`,
+          user_id: window.localStorage.getItem('user_id')
         }
       }),
       headers: {
@@ -90,6 +91,7 @@ class BarResult extends Component {
       }
     })
     .then((data) => {
+      browserHistory.push('/users/dashboard');
       console.log(data);
     })
     .catch((err) => {

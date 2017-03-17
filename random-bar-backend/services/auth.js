@@ -6,7 +6,7 @@ AuthService.restrict = (req, res, next) => {
   // header is meta data sent along with certain requests
   // checks for header
   if(req.headers['authorization']) {
-    const payload = jwt.verify(req.headers['authorization'], 'keyboard cat');
+    const payload = jwt.verify(req.headers['authorization'], 'taco cat');
     if (payload) {
       req.user = payload;
       next();

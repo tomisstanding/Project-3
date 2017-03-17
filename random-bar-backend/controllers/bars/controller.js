@@ -13,4 +13,15 @@ controller.create = (req, res) => {
   });
 }
 
+controller.destroy = (req, res) => {
+  Bar
+  .delete(req.params.bar_id, req.params.user_id)
+  .then(() => {
+    res.sendStatus(200);
+  })
+  .catch((err) => {
+    console.log('ERROR', err);
+  })
+}
+
 module.exports = controller;
