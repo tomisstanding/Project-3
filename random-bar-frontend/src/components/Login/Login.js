@@ -45,10 +45,12 @@ class Login extends Component {
         console.log('jwt in login component', jwt.token)
         // console.log(jwt);
         window.localStorage.setItem("MyToken", jwt.token);
+
         console.log('localstorage token',window.localStorage.getItem("MyToken"))
         // HOW WE CAN LOGOUT - wipe token
         // window.localStorage.setItem("MyToken", "")
         // console.log('localstorage after wipe',window.localStorage.getItem("MyToken"))
+
         browserHistory.push("/");
       })
     })
@@ -69,7 +71,7 @@ class Login extends Component {
               <input name="email" type="email" onChange={this.handleChange.bind(this)} />
               <h4>Password:</h4>
               <input name="password" type="password" onChange={this.handleChange.bind(this)} />
-              <button className="standard-btn" type="submit">Login</button>
+              <button className="standard-btn" type="submit">Log In</button>
             </form>
           </div>
         </div>

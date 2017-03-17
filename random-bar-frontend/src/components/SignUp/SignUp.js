@@ -79,7 +79,7 @@ class SignUp extends Component {
               <h4>Password:</h4>
               <input name="password_digest" type="password" className="signup-form" onChange={this.handleChange.bind(this)} />
               <br />
-              <button className="standard-btn" type="submit">Signup</button>
+              <button className="standard-btn" type="submit">Sign Up</button>
             </form>
           </div>
         </div>
