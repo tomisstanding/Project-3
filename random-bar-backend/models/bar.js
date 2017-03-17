@@ -12,18 +12,10 @@ Bar.addToFavorites = (bar) => {
   );
 }
 
-// Bar.findByUserEmail = (email) => {
-//   return db.query(
-//     `SELECT *
-//     FROM saved_bars
-//     WHERE email = $1`,
-//     [email]
-//   )
-// }
-
 Bar.findByUserEmail = (email) => {
   return db.query(
     `SELECT
+      saved_bars.id,
       saved_bars.name,
       saved_bars.rating,
       saved_bars.address,

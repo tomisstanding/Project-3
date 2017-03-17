@@ -18,6 +18,7 @@ controller.new = (req, res) => {
 };
 
 controller.authorizeToken = (req, res) => {
+
   jwt.verify(req.headers.authorization, "taco cat", (err, decoded) => {
     if (err) {
       console.log('one');
@@ -25,19 +26,18 @@ controller.authorizeToken = (req, res) => {
       .status(401)
       .json({ error: err.message });
     } else {
-
       // pass favorite bars to dashboard page here
       Bar
         .findByUserEmail(decoded.email)
         .then((data) => {
-          console.log(data);
+          res.json(data);
+
         })
         .catch((err) => {
           console.log('ERROR', err);
         })
-
-      console.log('two', decoded);
-      res.json({ message: "This is restricted content coming from the Node Server."})
+      // console.log('two', decoded);
+      // res.json({ message: "This is restricted content coming from the Node Server."})
     }
   });
 }

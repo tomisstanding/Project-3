@@ -9,7 +9,7 @@ class FavoriteBars extends Component {
     super(props);
 
     this.state = {
-      message: ""
+      bars: []
     };
   }
 
@@ -24,7 +24,7 @@ class FavoriteBars extends Component {
     })
     .then((results) => {
       results.json().then((data) => {
-        this.setState({ data })
+        this.setState({ bars: data });
       })
     })
     .catch((err) => {
@@ -38,13 +38,19 @@ class FavoriteBars extends Component {
       <div>
         <Nav />
         <div className="container">
-          <h2>Your Favorite Bars</h2>
-          <SavedBar
-            name="Bar Name"
-            rating="4.5"
-            address="573 6th Ave, Brooklyn NY"
-            phone_number="7863658759"
-          />
+        <h2>Your Favorite Bars</h2>
+          {this.state.bars.map((bar) => {
+            return(
+              <div key={bar.id}>
+                <SavedBar
+                  name={bar.name}
+                  rating={bar.rating}
+                  address={bar.address}
+                  phone_number={bar.phone}
+                />
+              </div>
+            )
+          })}
         </div>
       </div>
     );
