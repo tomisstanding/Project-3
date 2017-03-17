@@ -9,8 +9,9 @@ class Login extends Component {
     super(props);
 
     this.state={
-      user: {}
-    }
+      email: "",
+      password: ""
+    };
   }
 
   handleChange(event) {
@@ -28,20 +29,18 @@ class Login extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    fetch(`http://localhost:8000/users/login`, {
+    fetch(`http://localhost:8000/authenticate`, {
       method: "POST",
-      body: JSON.stringify({
-        user: this.state
-      }),
-      headers: {
-        "Content-Type": "application/json"
-      }
+      body: JSON.stringify(this.state)
     })
-    .then(() => {
-      browserHistory.push("/")
+    .then((results) => {
+      results.json().then((jwt) => {
+        window.localStorage.setItem("MyToken", jwt.token);
+        browserHistory.push("/");
+      })
     })
     .catch((err) => {
-      console.log("ERROR:", err);
+      alert("Not Authenticated!");
     })
   }
 
@@ -52,7 +51,7 @@ class Login extends Component {
         <div className="container">
           <h2>Login Here</h2>
           <div className="form-container">
-            <form>
+            <form onSubmit={this.handleSubmit.bind(this)}>
               <h4>Email:</h4>
               <input name="email" type="email" onChange={this.handleChange.bind(this)} />
               <h4>Password:</h4>
