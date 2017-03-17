@@ -7,6 +7,7 @@ const methodOverride = require('method-override');
 const session        = require('express-session');
 const cors           = require('cors');
 const app            = express();
+const jwt            = require('jsonwebtoken');
 const PORT           = process.env.PORT || 8000;
 
 // config cors

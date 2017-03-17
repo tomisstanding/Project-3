@@ -57,7 +57,6 @@ controller.process_login = (req, res) => {
           const token = jwt.sign({ email : user.email }, 'taco cat', { expiresIn: '7d' });
           // respond with token
           res.json({ token: token });
-
           // store token on front end
           // render show page
 
