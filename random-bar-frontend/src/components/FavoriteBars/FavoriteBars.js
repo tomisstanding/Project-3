@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { browserHistory } from "react-router";
 
-import Nav from "../Nav/Nav";
+import UserNav from "../Nav/UserNav";
 import SavedBar from "./SavedBar";
 
 class FavoriteBars extends Component {
@@ -9,14 +9,17 @@ class FavoriteBars extends Component {
     super(props);
 
     this.state = {
-      bars: []
+      bars: [
+        {
+          firstname: 'John'
+        }
+      ]
     };
   }
 
   // get dynamic content from server user saved JWT
   componentDidMount() {
-
-    fetch(`http://localhost:8000/users/dashboard`, {
+    fetch('http://localhost:8000/users/dashboard', {
       method: "GET",
       headers: {
         // "Authorization": `Bearer ${window.localStorage.getItem("token")}`
@@ -38,13 +41,17 @@ class FavoriteBars extends Component {
   render() {
     return(
       <div>
-        <Nav />
+        <UserNav
+          firstname={this.state.bars[0].firstname}
+        />
         <div className="container">
         <h2>Your Favorite Bars</h2>
           {this.state.bars.map((bar) => {
             return(
               <div key={bar.id}>
                 <SavedBar
+                  bar_id={bar.id}
+                  user_id={bar.user_id}
                   name={bar.name}
                   rating={bar.rating}
                   address={bar.address}

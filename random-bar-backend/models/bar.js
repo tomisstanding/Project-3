@@ -21,6 +21,7 @@ Bar.findByUserEmail = (email) => {
       saved_bars.address,
       saved_bars.phone,
       users.email,
+      users.firstname,
       user_id
     FROM saved_bars
     LEFT OUTER JOIN users
@@ -30,5 +31,12 @@ Bar.findByUserEmail = (email) => {
   );
 }
 
+Bar.delete = (barId, userId) => {
+  return db.none(
+    `DELETE FROM saved_bars
+    WHERE id = $1 AND user_id = $2`,
+    [barId, userId]
+  );
+}
 
 module.exports = Bar;

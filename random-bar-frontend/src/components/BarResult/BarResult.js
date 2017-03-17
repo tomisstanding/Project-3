@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router";
+import { Link, browserHistory } from "react-router";
 
 
 import Nav from "../Nav/Nav";
@@ -91,6 +91,7 @@ class BarResult extends Component {
       }
     })
     .then((data) => {
+      browserHistory.push('/users/dashboard');
       console.log(data);
     })
     .catch((err) => {
