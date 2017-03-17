@@ -70,6 +70,9 @@ controller.process_login = (req, res) => {
           // respond with token
           res.json({ token: token });
 
+          // store token on front end
+          // render show page   
+
         } else {
           // else send user back to login view
           res.sendStatus(401);

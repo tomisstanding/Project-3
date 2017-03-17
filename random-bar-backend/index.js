@@ -8,6 +8,7 @@ const session        = require('express-session');
 const expressJWT     = require('express-jwt');
 const cors           = require('cors');
 const app            = express();
+const jwt            = require('jsonwebtoken');
 const PORT           = process.env.PORT || 8000;
 
 // config cors

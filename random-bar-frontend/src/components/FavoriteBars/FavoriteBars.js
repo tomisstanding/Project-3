@@ -9,7 +9,7 @@ class FavoriteBars extends Component {
       <div>
         <Nav />
         <div className="container">
-          <h1>Favorite Bars</h1>
+          <h2>Your Favorite Bars</h2>
           <SavedBar
             name="Bar Name"
             rating="4.5"
