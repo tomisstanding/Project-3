@@ -50,7 +50,7 @@ class Login extends Component {
         // window.localStorage.setItem("MyToken", "")
         // console.log('localstorage after wipe',window.localStorage.getItem("MyToken"))
 
-        browserHistory.push("/:user_id/dashboard");
+        browserHistory.push("/users/dashboard");
       })
     })
     .catch(() => {

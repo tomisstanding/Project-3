@@ -37,7 +37,7 @@ User.findById = (id) => {
 }
 
 User.findByEmail = (email) => {
-  console.log('email in model', email)
+  // console.log('email in model', email)
   return db.oneOrNone(`
     SELECT * FROM users
     WHERE email = $1;`,

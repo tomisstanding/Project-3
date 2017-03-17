@@ -7,7 +7,8 @@ class UserNav extends Component {
   }
 
   handleSubmit() {
-    window.localStorage.setItem("MyToken", "")
+    window.localStorage.setItem("MyToken", "");
+    window.localStorage.setItem("user_id", "");
   }
 
   render() {
@@ -18,7 +19,7 @@ class UserNav extends Component {
         </Link>
         <ul>
           <li>
-            Hey, {this.props.firstname}
+            {/* Hey, {this.props.firstname} */}
           </li>
           <li>
           <Link to="/" onClick={this.handleSubmit.bind(this)}>Log Out</Link>
