@@ -1,4 +1,4 @@
-# Project-3 - Random Local Bar Generator 
+# Project-3 : Random Local Bar Generator 
 
 ### Authors
 - Andres Maza
@@ -8,8 +8,7 @@
 
 ### Technologies Used
 
-Our stack implemented consisted of Node.js and Express on the backend, and React on the front end.
-We used a few different middlewares and different dependencies including but not limited to:
+This project was the perfect chance to implement Node.js and Express on the backend, with React, HTML/CSS and Javascript on the front end. We used a few different middlewares and different dependencies including but not limited to:
 
     "bcrypt": "^1.0.2",
     "body-parser": "^1.17.1",
@@ -42,11 +41,15 @@ Once we had our API functionality built out and were able to test it successfull
 
 ### User Stories
 
-1. Users can search for a single random bar within a 500 meter radius.
-2. Users can sign up and login to save their favorite bars to their own account/dashboard. 
-3. Users not satisfied with their random encounter can also select another watering hole by clicking a "search more" button.
-4. Users can delete their saved bars in their dashboard.
-5. * Users can vote on the bars and leave comments in the common area of each bar.
-6. * Users can select by group or date as well as fancy or dive bar to see a specific bar shown to them.
+- Users can search for a single random bar within a 500 meter radius.
+- Users can sign up and login to save their favorite bars to their own account/dashboard. 
+- Users not satisfied with their random encounter can also select another watering hole by clicking a "search more" button.
+- Users can delete their saved bars in their dashboard.
+
+### Wireframes
+
+[Homepage](http://imgur.com/ZGuWjD2)
+Home Page: 
+![Homepage](https://github.com/tomisstanding/Project-3/wireframes/home.jpg "Home")
 
 ### Unsolved problems 
