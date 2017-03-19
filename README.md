@@ -32,8 +32,7 @@ A simple npm install upon installation should allow any developer access.
 
 ### General Approach
 
-Our approach was simple, create a simplistic, functional real world app that would perform a simple search depending on the users geo location and provide a effortless user experience with a usable interface. We would have two tables ![ERD](http://i.imgur.com/2psdTxd.png) and our homepage [Homepage](http://imgur.com/ZGuWjD2) and [Dashboard](http://imgur.com/2JvNoCC)
- would be just as simple as well. 
+Our approach was simple, create a simplistic, functional real world app that would perform a simple search depending on the users geo location and provide a effortless user experience with a usable interface. We would have two tables for our users and bars, and our approach to our [Dashboard](http://imgur.com/2JvNoCC) and our homepage [Homepage](http://imgur.com/ZGuWjD2) would be just as simple. ![ERD](http://i.imgur.com/2psdTxd.png) 
 
 ![Yelp Fusion API](http://cdn.ttgtmedia.com/ITKE/uploads/blogs.dir/317/files/2016/09/1yelpoewifiuwgf.jpg)
 
