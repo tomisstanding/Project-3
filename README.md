@@ -33,6 +33,8 @@ A simple npm install upon installation should allow any developer access.
 
 Our approach was simple, create a function and simple app that would perform a simple search depending on the users geo location and provide a effortless user experience with a usable interface. We would have [two tables]: http://i.imgur.com/2psdTxd.png and our [layout]: http://imgur.com/ZGuWjD2 would be just as simple as well.
 
+![alt text](http://cdn.ttgtmedia.com/ITKE/uploads/blogs.dir/317/files/2016/09/1yelpoewifiuwgf.jpg  "Logo Title Text 1")
+
 [Yelp Fusion API]: http://cdn.ttgtmedia.com/ITKE/uploads/blogs.dir/317/files/2016/09/1yelpoewifiuwgf.jpg 
 We decided to use [Yelp's Fusion API](https://www.yelp.com/developers/documentation/v3/business_search) which gave a robust and extensive json response in which we would be able to massage to get what we needed for our application. 
 
