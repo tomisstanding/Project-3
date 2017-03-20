@@ -49,7 +49,6 @@ Once we had our API functionality built out and were able to test it successfull
 ### Wireframes
 
 [Homepage](http://imgur.com/ZGuWjD2)
-Home Page: 
-![Homepage](https://github.com/tomisstanding/Project-3/wireframes/home.jpg "Home")
+Home Page:(https://raw.githubusercontent.com/tomisstanding/Project-3/master/wireframes/home.jpg"Home")
 
 ### Unsolved problems 
