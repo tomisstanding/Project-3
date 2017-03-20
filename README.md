@@ -48,8 +48,14 @@ Once we had our API functionality built out and were able to test it successfull
 
 ### Wireframes
 
-[Homepage](http://imgur.com/ZGuWjD2)
 Home Page: 
 ![Homepage](https://raw.githubusercontent.com/tomisstanding/Project-3/master/wireframes/home.jpg)
 
-### Unsolved problems 
+User Dashboard:
+![Dashboard](https://raw.githubusercontent.com/tomisstanding/Project-3/master/wireframes/dashboard.jpg)
+
+### Unsolved issues
+
+* There were additional features we would like to have added such as leaving comments on each bar and look forward to working further on this in the future. 
+
+* Huge thanks and credit to Dan Pease and Irwin Tsay who both helped us to pass the JSON Web Token properly once a user is created and logs in and on restricted routes. 
